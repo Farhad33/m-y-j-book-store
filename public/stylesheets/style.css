@@ -1,8 +1,44 @@
 body {
-  padding: 50px;
+  margin: 200px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightblue;
+  overflow-y: hidden;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  padding: 20px 20px 20px 20px;
+  background-color: #000;
+  border-radius: 10px;  
+  position: fixed;
+  width: 106em;
 }
+
+article {
+  height: 100em;
+  background-color: red;
+  overflow-y: auto;
+  border-radius: 10px; 
+  padding: 20px 20px 20px 20px; 
+}
+
+li {
+  display: inline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+
+li a {
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li {
+    text-align: center;
+}
+
+
