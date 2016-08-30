@@ -5,9 +5,11 @@ html
     title Nav Bar
   body
     nav
+      a(target='_blank', href='/')
+        img(src='/images/logo.png', alt='logo', width='100', height='100')
       ul
         li
-          a(href='') Home
+          a(href='/') Home
         li
-          a(href='') Add Book
+          a(href='/addBook') Add Book
   block content
