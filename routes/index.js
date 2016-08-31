@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'jrob rules' });
-});
+const db = require( '../database' ).Books  // what the hell is .Books ??!!
 
-module.exports = router;
+router.get( '/', function(req, res, next) {
+  db.all( 10 )
+    .then( books => res.render('index', { books }) )
+    .catch( error => res.send({ message: error.message, error }))
+})
+
+module.exports = router

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  form(method='post', action='/books')
+    div
+      input(type='text', name='title')
+    div
+      input(type='text', name='description')
+    div
+      input(type='text', name='image')
+    div
+      input(type='text', name='published')
+    div
+      input(type='submit', value='Submit')
