@@ -1,11 +1,25 @@
 const pgp = require( 'pg-promise' )()
 const db = pgp({ database: 'bookstore' })
 
+const createBookSql = 'INSERT INTO books (title, description, image, published ) VALUES ( $1, $2, $3, $4 ) RETURNING id'
+
 const Books = {
-  all: limit => db.any( 'SELECT * FROM books LIMIT $1', [limit] ),
-  findById: id => db.one( 'SELECT * FROM books WHERE id=$1', [id] ) // what's id=$1
+  count: () => db.one( 'SELECT COUNT(*) FROM books' ),
+  all: offset => db.any( 'SELECT * FROM books order by id asc LIMIT 10 OFFSET $1', [offset] ),
+  findById: id => db.one( 'SELECT * FROM books WHERE id=$1', [id] ),
+  findAuthorsByBookId: id => db.any('SELECT * FROM authors JOIN book_authors ON book_authors.author_id=authors.id WHERE book_authors.book_id=$1', [id]),
+  findGenresByBookId: id => db.any('SELECT * FROM genres JOIN book_genres ON book_genres.genre_id=genres.id WHERE book_genres.book_id=$1', [id]),
+  createBook: ( title, description, image, published ) => db.one( createBookSql, [title, description, image, published] )
+}
+
+const Authors = {
+  create: name => db.one( 'INSERT INTO authors ( name ) VALUES ( $1 ) RETURNING id', [name] )
+}
+
+const BookAuthors = {
+  create: (book_id, author_id) => db.one( 'INSERT INTO book_authors ( book_id, author_id ) VALUES ( $1, $2 ) RETURNING book_id', [ book_id, author_id ] )
 }
 
 module.exports = {
-  Books
+  Books, Authors, BookAuthors
 }

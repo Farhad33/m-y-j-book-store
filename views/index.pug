@@ -5,11 +5,27 @@ block content
     aside  
       h1 Search Bar
       form
-        input(type='text', name='search', placeholder='Search..')
+        input.SearchTextBox(type='text', name='search', placeholder='Search..')
     article 
+      br
+      br
+      - var page = 0
+      while page * 10 < count
+        a(href=`/?page=${page + 1}`)= ++page
+
       each book in books
-        .book
-          img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
-          h3= book.title
-          h4= book.author
-          book.id
+        br
+        br
+        a(href=`http://localhost:3000/books/${book.id}`, target='_blank')
+          .book
+            img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
+            h3= book.title
+
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      
