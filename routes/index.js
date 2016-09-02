@@ -13,7 +13,7 @@ router.get( '/', function(req, res, next) {
     getBooksSearch( search.toLowerCase(), type ) : getBooksPage
 
     bookListing( bookFetch, page ).then( result => {
-      res.render('index', Object.assign( {}, result, { page } ))
+      res.render('index', Object.assign( {}, result, { page, search, type: type.replace('by', 'by ') } ))
     })
     .catch( error => res.send({ message: error.message, error }))
 })
@@ -32,6 +32,15 @@ const getBooksPage = page =>
 const getAuthorsAndGenres = result => {
   const [ countResult, books ] = result
   const bookIds = books.map( book => book.id )
+
+  if( bookIds.length === 0 ) {
+    return Promise.all([
+      Promise.resolve( countResult.count ),
+      Promise.resolve( books ),
+      Promise.resolve( [] ),
+      Promise.resolve( [] )
+    ])
+  }
 
   return Promise.all([
     Promise.resolve( countResult.count ),

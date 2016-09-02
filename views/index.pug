@@ -28,13 +28,16 @@ block content
         while page * 10 < count
           a(href=`/?page=${page + 1}`)= ++page
 
-      each book in books
-        a(href=`http://localhost:3000/books/${book.id}`, target='_blank')
-          .book
-            img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
-            h3= book.title
-            h4= book.authors.map( a => a.name ).join( ', ')
-            p= book.genres.map( g => g.name ).join( ', ')
+      if books.length > 0
+        each book in books
+          a(href=`http://localhost:3000/books/${book.id}`, target='_blank')
+            .book
+              img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
+              h3= book.title
+              h4= book.authors.map( a => a.name ).join( ', ')
+              p= book.genres.map( g => g.name ).join( ', ')
+      else
+        h3 Sorry, I can't find any results for '#{search}' when searching #{type}!
 
       br
       br
