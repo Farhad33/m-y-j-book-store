@@ -5,29 +5,47 @@ block content
     aside  
       h1 Search Bar
       form
-        input(type='text', name='search', placeholder='Search..')
+        input.SearchTextBox(type='text', name='search', placeholder='Search..')
+
+        div
+          input(type='radio', value='byTitle', name='type') 
+          label Books
+        div
+          input(type='radio', value='byAuthor', name='type') 
+          label Authors
+        div
+          input(type='radio', value='byGenre', name='type') 
+          label Genres
+
+        div
+          button(type='submit') Search 
+
     article 
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
-      .book
-        img(src='https://images-na.ssl-images-amazon.com/images/I/518NO3X1X2L._SX394_BO1,204,203,200_.jpg', alt='JavaScript', width='75', height='100')
-        h3 Professional JavaScript for Web Developers
-        h4 Nicholas C. Zakas
+      br
+      br
+      - var page = 0
+      while page * 10 < count
+        a(href=`/?page=${page + 1}`)= ++page
+
+      each book in books
+        br
+        br
+        a(href=`http://localhost:3000/books/${book.id}`, target='_blank')
+          .book
+            img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
+            h3= book.title
+
+            h3 Authors
+            p= book.authors.map( a => a.name ).join( ', ')
+
+            h3 Genres
+            p= book.genres.map( g => g.name ).join( ', ')
+
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      

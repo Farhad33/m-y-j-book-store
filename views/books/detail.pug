@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  .detail
+    img(src=`${book.image}`, alt=`${book.title}`, width='250', height='300')  
+    h1= book.title
+    h2= `${authors.map( author => author.name ).join(', ')}`
+    h3= `${genres.map( genre => genre.name ).join(', ')}`
+    div= book.description
+    div= book.published
