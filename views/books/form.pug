@@ -8,7 +8,7 @@ block content
       div.textBox
         input.inputAll(type='text', name='author', placeholder='Author')
       div.textBox
-        textarea(name='description', placeholder='Description')= book.description
+        textarea.inputAll(name='description', placeholder='Description')= book.description
       div.textBox
         input.inputAll(type='text', name='image', placeholder='Image URL', value=`${book.image || ''}`)
       div.textBox
