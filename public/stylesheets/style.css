@@ -42,33 +42,32 @@ nav {
 }
 
 main {
-
-  /*position: relative;*/
   height: 60em;
   padding-top: 150px; 
   color: #fff;
-  /*display: flex;*/
-/*flex-direction: row;*/
-
 }
 
 aside {
   position: fixed;
-  /*flex: 1;*/
-
   padding: 2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-aside div{
+aside form {
+  display: flex;
+  flex-direction: column;
+}
+
+aside form label {
+  padding: 10px;
+}
+
+aside form div {
   padding: 10px;
 }
 
 article {
-  /*flex: 4;*/
-
   padding-left: 300px;
-  /*overflow-y: auto;*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-shadow: 2px 2px #000;
   padding-bottom: 20px;
@@ -82,7 +81,6 @@ article .page {
 
 .book {
   padding: 20px;
-
 }
 
 .book img {
@@ -97,9 +95,11 @@ article .page {
 }
 
 .detail {
-  margin: 30px 400px 30px 30px;
   color: white;
   text-shadow: 2px 2px #000;
+  padding-top: 180px;
+  padding-left: 50px;
+  padding-right: 20%;
 }
 
 .detail img {
@@ -117,16 +117,16 @@ article .page {
 }
 
 .inputAll {
-    width: 400px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1.4em;
-    background-color: white;
-    background-position: 10px 10px;
-    padding: 10px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  width: 400px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.4em;
+  background-color: white;
+  background-position: 10px 10px;
+  padding: 10px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
 }
 
 .addBook {
@@ -139,9 +139,14 @@ article .page {
 
 input[type=text]:focus {
   width: 80%;
+
 }
 
-.SearchTextBox {
+.search-box {
+  padding: 12px 20px 12px 40px;
+  background-image: url('http://www.w3schools.com/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
   width: 150px;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -149,7 +154,6 @@ input[type=text]:focus {
   font-size: 1.4em;
   background-color: white;
   background-position: 10px 10px;
-  padding: 10px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
@@ -187,6 +191,7 @@ input[type=text]:focus {
   text-decoration:none;
   text-shadow:0px -1px 0px #000000;
 }
+
 .submit:hover {
   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4b88e3), color-stop(1, #0c57c9));
   background:-moz-linear-gradient(top, #4b88e3 5%, #0c57c9 100%);
@@ -197,6 +202,7 @@ input[type=text]:focus {
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4b88e3', endColorstr='#0c57c9',GradientType=0);
   background-color:#4b88e3;
 }
+
 .submit:active {
   position:relative;
   top:1px;

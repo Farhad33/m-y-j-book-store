@@ -5,20 +5,20 @@ block content
     aside  
       form
         div
-          input.SearchTextBox(type='text', name='search', placeholder='Search..')
+          input.search-box(type='text', name='search', placeholder='Search..')
 
-        div
+        label
           input(type='radio', value='byTitle', name='type') 
-          label Book Titles
-        div
+          i Book Titles
+        label
           input(type='radio', value='byAuthor', name='type') 
-          label Authors
-        div
+          i Authors
+        label
           input(type='radio', value='byGenre', name='type') 
-          label Genres
+          i Genres
 
         div
-          button.SearchTextBox(type='submit') Search 
+          button.submit(type='submit') Search 
 
     article 
       .page
