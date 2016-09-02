@@ -3,12 +3,12 @@ const router = express.Router()
 
 const { Books, Authors, BookAuthors } = require( '../database' )
 
-router.get( '/add', ( req, res, next ) => {
-  res.render( 'books/form' )
+router.get( '/add', ( request, response, next ) => {
+  response.render( 'books/form', { book: {} } )
 })
 
-router.get( '/:id', ( req, res, next ) => {
-  const { id } = req.params
+router.get( '/:id', ( request, response, next ) => {
+  const { id } = request.params
 
   Promise.all([
     Books.findById( id ),
@@ -17,25 +17,45 @@ router.get( '/:id', ( req, res, next ) => {
   ])
   .then( result => {
     const [ book, authors, genres ] = result
-    res.render( 'books/detail', { book, authors, genres })
+    response.render( 'books/detail', { book, authors, genres })
   })
-  .catch( error => res.send({ error, message: error.message }))
+  .catch( error => response.send({ error, message: error.message }))
 })
 
-router.post( '/', ( req, res, next ) => {
-  const { title, description, image, published, author } = req.body
+router.post( '/', ( request, response, next ) => {
+  const { title, description, image, published, author } = request.body
 
   Promise.all([
     Books.createBook( title, description, image, published ),
     Authors.create( author )
   ])
   .then( result => BookAuthors.create( result[ 0 ].id, result[ 1 ].id ))
-  .then( result => res.redirect( `/books/${result.book_id}` ))
-  .catch( error => res.send({ message: error.message }))
+  .then( result => response.redirect( `/books/${result.book_id}` ))
+  .catch( error => response.send({ message: error.message }))
 })
 
-router.delete( '/:id', ( req, res, next ) => {
-  res.redirect( '/' )
+router.post( '/:id', (request, response, next) => {
+  const { title, description, image, published, author } = request.body
+  
+  .then( result => response.redirect( `/books/${result.book_id}` ))
+  .catch( error => response.send({ message: error.message }))
+  // Write the update  
+})
+
+router.get( '/delete/:id', ( request, response, next ) => {
+  Books.delete( request.params.id )
+    .then( result => response.redirect( '/' ))
+    .catch( error => response.send({ message: error.message }))
+})
+
+router.get( '/edit/:id', ( request, response, next ) => {
+  Books.findById( request.params.id )
+    .then( book => response.render( 'books/form', { book }))
+    .catch( error => response.send({ message: error.message }))  
+})
+
+router.get( '/new/:id', ( request, response, next ) => {
+  response.redirect( '/' )
 })
 
 module.exports = router

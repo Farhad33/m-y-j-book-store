@@ -6,5 +6,11 @@ block content
     h1= book.title
     h2= `${authors.map( author => author.name ).join(', ')}`
     h3= `${genres.map( genre => genre.name ).join(', ')}`
-    div= book.description
-    div= book.published
+    p= book.description
+    p= book.published
+
+    .links
+      a(href="/books/add") New
+      a(href=`/books/edit/${book.id}`) Edit
+      a(href=`/books/delete/${book.id}`) Delete
+
