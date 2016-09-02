@@ -34,7 +34,15 @@ router.post( '/', ( req, res, next ) => {
   .catch( error => res.send({ message: error.message }))
 })
 
-router.delete( '/:id', ( req, res, next ) => {
+router.delete( '/delete/:id', ( req, res, next ) => {
+  res.redirect( '/' )
+})
+
+router.delete( '/edit/:id', ( req, res, next ) => {
+  res.redirect( '/' )
+})
+
+router.delete( '/new/:id', ( req, res, next ) => {
   res.redirect( '/' )
 })
 

@@ -52,21 +52,32 @@ aside {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+aside div{
+  padding: 10px;
+}
+
 article {
   flex: 4;
   overflow-y: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px #000;
+}
+
+article .page {
+  padding-top: 50px;
+  padding-bottom: 0px;
 }
 
 .book {
-  padding: 50px;
+  padding: 20px;
 
 }
 
 .book img {
   width: 100px;
   height: 150px;
-
+  float: left;
+  padding-right: 20px;
 }
 
 .book h3 {
@@ -75,12 +86,17 @@ article {
 
 .detail {
   margin: 30px 400px 30px 30px;
+  color: white;
+  text-shadow: 2px 2px #000;
 }
 
-img {
+.detail img {
   float: left;
-  padding-right: 10px;
+  padding-right: 20px;
+}
 
+.detail .links {
+  padding: 10px;
 }
 
 .inputAll {

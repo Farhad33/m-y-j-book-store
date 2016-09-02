@@ -8,3 +8,9 @@ block content
     h3= `${genres.map( genre => genre.name ).join(', ')}`
     div= book.description
     div= book.published
+
+    .links
+      a(href="/books/new") New
+      a(href=`/books/edit/${book.id}`) Edit
+      a(href=`/books/delete/${book.id}`) Delete
+
