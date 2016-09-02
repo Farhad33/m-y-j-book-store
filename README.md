@@ -15,20 +15,20 @@ Creating this web application will provide exposure to:
 - [x] Books entered in the system are listed on the home page, in pages of 10
 - [x] Users can search for books by specifing title or author and optionally genre
 - [x] Users can view book details on a book detail page, linked to from the listing and search pages
-- [ ] All code submissions are peer reviewed via GitHub PR and master is always in a stable state
+- [x] All code submissions are peer reviewed via GitHub PR and master is always in a stable state
 
 ### Required
 
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+- [x] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
 ## Quality Rubric
 
-- [ ] Interface is user friendly
-- [ ] Code is well formatted without any linting errors
-- [ ] Site works for all key features
-- [ ] Variables, functions, css classes, etc. are meaningfully named (no comments exist in code to explain functionality - the names serve that function)
-- [ ] Functions are small and serve a single purpose
-- [ ] Code is well organized into a meaningful file structure
+- [x] Interface is user friendly
+- [x] Code is well formatted without any linting errors
+- [x] Site works for all key features
+- [x] Variables, functions, css classes, etc. are meaningfully named (no comments exist in code to explain functionality - the names serve that function)
+- [x] Functions are small and serve a single purpose
+- [x] Code is well organized into a meaningful file structure
 
 
 
