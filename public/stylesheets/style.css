@@ -1,7 +1,7 @@
 body {
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  overflow-y: hidden;
+  overflow-y: auto;
   background-color: hsl(2, 57%, 40%);
   background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
   repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
@@ -28,26 +28,34 @@ a {
 }
 
 li {
-    text-align: center;
+  text-align: center;
 }
 
 nav {
+  position: fixed;
   background-color: #000;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+
 }
 
 main {
-  position: relative;
+
+  /*position: relative;*/
   height: 60em;
-  padding: 0px; 
+  padding-top: 150px; 
   color: #fff;
-  display: flex;
+  /*display: flex;*/
+/*flex-direction: row;*/
+
 }
 
 aside {
-  flex: 1;
+  position: fixed;
+  /*flex: 1;*/
+
   padding: 2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -57,15 +65,19 @@ aside div{
 }
 
 article {
-  flex: 4;
-  overflow-y: auto;
+  /*flex: 4;*/
+
+  padding-left: 300px;
+  /*overflow-y: auto;*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-shadow: 2px 2px #000;
+  padding-bottom: 20px;
 }
 
 article .page {
-  padding-top: 50px;
-  padding-bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .book {
@@ -96,7 +108,12 @@ article .page {
 }
 
 .detail .links {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   padding: 10px;
+  padding-top: 50px;
+  font-size: 1.2em;
 }
 
 .inputAll {
@@ -189,3 +206,6 @@ input[type=text]:focus {
   color: white;
 }
 
+p {
+  font-size: 1.1em;
+}

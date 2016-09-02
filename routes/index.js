@@ -13,7 +13,7 @@ router.get( '/', function(req, res, next) {
     getBooksSearch( search.toLowerCase(), type ) : getBooksPage
 
     bookListing( bookFetch, page ).then( result => {
-      res.render('index', Object.assign( {}, result, { page, search, type: type.replace('by', 'by ') } ))
+      res.render('index', Object.assign( {}, result, { page, search, type: (type || '').replace('by', 'by ') } ))
     })
     .catch( error => res.send({ message: error.message, error }))
 })

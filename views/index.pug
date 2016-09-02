@@ -3,7 +3,6 @@ extends layout
 block content
   main
     aside  
-      h1 Search Bar
       form
         div
           input.SearchTextBox(type='text', name='search', placeholder='Search..')
@@ -23,7 +22,7 @@ block content
 
     article 
       .page
-        p pages
+        p pages: 
         - var page = 0
         while page * 10 < count
           a(href=`/?page=${page + 1}`)= ++page
@@ -39,18 +38,11 @@ block content
       else
         h3 Sorry, I can't find any results for '#{search}' when searching #{type}!
 
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
-      br
+      .page
+        p pages: 
+        - var page = 0
+        while page * 10 < count
+          a(href=`/?page=${page + 1}`)= ++page
+
+
       
