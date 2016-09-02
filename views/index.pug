@@ -6,6 +6,20 @@ block content
       h1 Search Bar
       form
         input.SearchTextBox(type='text', name='search', placeholder='Search..')
+
+        div
+          input(type='radio', value='byTitle', name='type') 
+          label Books
+        div
+          input(type='radio', value='byAuthor', name='type') 
+          label Authors
+        div
+          input(type='radio', value='byGenre', name='type') 
+          label Genres
+
+        div
+          button(type='submit') Search 
+
     article 
       br
       br
@@ -20,6 +34,12 @@ block content
           .book
             img(src=`${book.image}`, alt=`${book.title}`, width='75', height='100')  
             h3= book.title
+
+            h3 Authors
+            p= book.authors.map( a => a.name ).join( ', ')
+
+            h3 Genres
+            p= book.genres.map( g => g.name ).join( ', ')
 
       br
       br
